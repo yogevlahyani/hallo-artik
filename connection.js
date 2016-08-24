@@ -8,6 +8,7 @@ appTop.conn = {
 	timeout_length: 800, // milliseconds to pause before prompting
 	current_mode: '', // online or offline
 	iframe_exists: false,
+	scriptsLoaded: [],
 
 	cacheSelectors: function() {
 		appTop.conn.goOffline = document.getElementById('go-offline');
@@ -127,6 +128,14 @@ appTop.conn = {
 			r_src = iframewin.appp_remote_addon_js;
 
 			for (var i = 0; i < r_src.length; i++) {
+
+				filename = r_src[i].replace(/^.*[\\\/]/, '').replace(/(\?.*)|(#.*)/g, '');
+
+				if ( filename in appTop.conn.scriptsLoaded )
+					continue;
+
+				appTop.conn.scriptsLoaded[filename] = r_src[i];
+
 				if( appTop.conn.get_remote_script_status( r_src[i] ) == 200 ) {
 					jQuery('<script>', {
 						src: r_src[i],

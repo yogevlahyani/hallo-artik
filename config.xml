@@ -59,7 +59,6 @@
     <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
 
     <!-- If you are seeing a blank screen on Android on app load, uncomment SplashScreenDelay preference -->
-    <preference name="FadeSplashScreen" value="false"/>
     <preference name="SplashScreenDelay" value="10000" />
 
     <!-- No need to edit below this line -->

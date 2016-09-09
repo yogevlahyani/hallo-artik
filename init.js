@@ -27,9 +27,9 @@ function onLoad() {
 function onDeviceReady() {
 	console.log('device is ready');
 
-	if ( navigator.splashscreen ) {
-		navigator.splashscreen.hide();
-	}
+	setTimeout(function() {
+    navigator.splashscreen.hide();
+}, 2000);
 
 	// start the offline check now
 	appInit( 'device_ready' );
